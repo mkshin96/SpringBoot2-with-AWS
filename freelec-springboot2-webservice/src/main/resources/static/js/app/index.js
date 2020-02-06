@@ -7,15 +7,14 @@ var main = {
         $('#btn-update').on('click', function() {
             _this.update();
         });
-        $('#btn-delete' +
-            '').on('click', function () {
+        $('#btn-delete').on('click', function () {
             _this.delete();
         })
     },
     save : function () {
         var data = {
             title : $('#title').val(),
-            author : $('#author').val(),
+            author : $('#author').val(),    
             content : $('#content').val(),
         };
 
