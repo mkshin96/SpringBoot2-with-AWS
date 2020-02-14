@@ -1,5 +1,4 @@
 language: java
-
 jdk:
   - openjdk8
 
@@ -9,6 +8,7 @@ branches:
 
 before_install:
   - chmod +x gradlew
+
 # Travis CI 서버의 Home
 cache:
   directories:
@@ -43,6 +43,7 @@ deploy:
     deployment_group: freelec-springboot2-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
+
 #CI 실행 완료 시 메일로 알람
 notifications:
   email:
