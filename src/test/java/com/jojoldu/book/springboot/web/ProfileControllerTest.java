@@ -27,28 +27,15 @@ public class ProfileControllerTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
 
-    private MockMvc mockMvc;
-
     @Autowired
     WebApplicationContext context;
 
-    @Before
-    public void setUp() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(context)
-                .apply(springSecurity())
-                .build();
-    }
-
     @Test
     public void profile은_인증없이_호출된다() throws Exception {
-        String expected = "oauth";
+        String expected = "default";
 
         ResponseEntity<String> response = testRestTemplate.getForEntity("/profile", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isEqualTo(expected);
-
-        mockMvc.perform(get("/profile"))
-                .andDo(print())
-                .andExpect(content().string(expected));
     }
 }
